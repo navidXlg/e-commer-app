@@ -3,23 +3,22 @@ import  ReactDOM  from "react-dom";
 import { useSelector } from "react-redux";
 
 
-
-
 export default function SerachBarModel ({setOpen}){
 
   const [term, setTerm] = useState("");
-
   const handelChange = (event) => {
     setTerm(event.target.value);
   };
 
 
+  // Implementing the serch term to filter the data
   const filterProduct = useSelector(({prouducts : {data}}) => {
     return data.filter( item => item.title.toLowerCase().includes(term.toLowerCase()));
   });
-  
   const renderFilterItems = filterProduct.map(item => {
-    return <div key={item.id}>{item.title}</div>
+    return <div key={item.id} className=" p-3 bg-gray-300 border-r-4 border-red-500 mt-1">
+               {item.title}
+            </div>
   })
 
 
@@ -32,7 +31,7 @@ export default function SerachBarModel ({setOpen}){
                 <div>
                     <input 
                     placeholder="  جست و جو محصول ..." 
-                    className="bg-gray-400 w-full px-6 py-2
+                    className="bg-gray-300 w-full px-6 py-2
                      placeholder-slate-500 outline-slate-300
                       border border-slate-500"
                       value={term}
