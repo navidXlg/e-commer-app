@@ -3,13 +3,15 @@ import { FaSistrix, FaShoppingCart, FaUser } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import SerachBarModel from "./SearchBarModel";
 import SubmitModel from "./SubmitModel";
-import SubmitDropdown from "./SubmitDropDown";
 
 
 export default function Navbar(){
 
     // State for submit and serchBar Model Show
     const [navbarStatus, setNavbarStatus] = useState(0);
+
+
+
 
 
     return <div className="flex justify-center">
@@ -34,7 +36,7 @@ export default function Navbar(){
                     </li>
                 </ul>
               </div>
-              {navbarStatus === 2 ?  <SubmitDropdown setOpen = {setNavbarStatus}/> : ""}
+              {navbarStatus === 2 ?  <SubmitModel setOpen = {setNavbarStatus}/> : ""}
               {navbarStatus === 1 ?  <SerachBarModel setOpen = {setNavbarStatus}/> : ""}
            </div>
 };
