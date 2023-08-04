@@ -1,6 +1,16 @@
-
+import { useEffect } from "react";
+import Navbar from "./componants/Navbar"
+import { fetchProuducts } from "./store";
+import { useDispatch } from "react-redux";
 
 export default function App (){
 
-  return <div className="p-10">سلام حق</div>
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchProuducts());
+  },[dispatch]);
+
+  return <>
+            <Navbar/>
+         </>
 }
