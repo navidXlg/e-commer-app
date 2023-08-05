@@ -17,8 +17,8 @@ export default function Slider (){
 
   const renderProuducts =  productListSlider.map(item => {
     return <SwiperSlide>
-            <div className = "flex items-center justify-around">
-              <div key={item.id} className='w-1/2'>
+            <div className = "flex items-center justify-around py-14" key={item.id}>
+              <div>
                 <img src={item.heroImage || item.images[0]} alt= "pic of product" className='h-96'></img>
               </div>
               <div className='flex flex-col items-center '>
@@ -42,14 +42,34 @@ export default function Slider (){
                 disableOnInteraction: false,
             }}
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
     >
      {renderProuducts}
     </Swiper>
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+{/* <Swiper
+// install Swiper modules
+modules={[Pagination,A11y, Autoplay]}
+spaceBetween={50}
+slidesPerView={1}
+autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+      }}
+pagination={{ clickable: true }}
+onSwiper={(swiper) => console.log(swiper)}
+onSlideChange={() => console.log('slide change')}
+> */}
 
 
 
