@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import Button from "./Button"
 import { useState } from "react";
+import ProuductCard from "./ProuductCard";
 
 
 export default function Productitemlist(){
@@ -13,9 +14,8 @@ export default function Productitemlist(){
         return data.filter(item => item.category === filterType);
     });
 
-    const renderProducts = proudcts.map(item => <div>{item.info}</div>)
-
-    return<div className="text-center pt-8">
+    
+    return<div className="text-center pt-5">
             <h2 >محصولات</h2>
             <div className="mt-5 flex items-center justify-center gap-6">
                 <Button danger onClick = {() => setFilterType("")}>همه</Button>
@@ -24,6 +24,6 @@ export default function Productitemlist(){
                 <Button danger onClick = {() => setFilterType("Earphones")}>هندزفری د</Button>
                 <Button danger onClick = {() => setFilterType("Neckbands")}>نکبند</Button>
             </div>
-            {renderProducts}
+            <ProuductCard proudcts = {proudcts}/>
           </div>
 };

@@ -25,8 +25,8 @@ export default function SerachBarModel ({setOpen}){
     // Create Connection with base html to handel model component
     return ReactDOM.createPortal(
         <div>
-          <div className="fixed inset-0 bg-gray-500 opacity-60 z-10" onClick={() => setOpen(0)}></div>
-          <div className="fixed inset-32 h-fit bg-gray-200 shadow-gray-500 z-20">
+          <div className="fixed inset-0 bg-gray-500 opacity-60 z-40" onClick={() => setOpen(0)}></div>
+          <div className="fixed inset-32 h-fit bg-gray-200 shadow-gray-500 z-50">
             <form>
                 <div>
                     <input 
