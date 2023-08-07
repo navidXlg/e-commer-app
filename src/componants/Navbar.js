@@ -10,11 +10,7 @@ export default function Navbar(){
     // State for submit and serchBar Model Show
     const [navbarStatus, setNavbarStatus] = useState(0);
 
-
-
-
-
-    return <div className="flex justify-center">
+    return <div className="flex justify-center sticky">
               <div className="container px-14 py-4 flex items-center justify-between bg-blue-500">
                 <div className="logo">
                     <Link to = "/">
