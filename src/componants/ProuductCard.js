@@ -6,7 +6,6 @@ export default function ProuductCard({proudcts}){
 
 
     const renderProductItems = proudcts.map( item => {
-
         return   <div class="container">
                 <div class="card">
                     <div class="imgBx">
