@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import  ReactDOM  from "react-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 export default function SerachBarModel ({setOpen}){
@@ -10,14 +11,20 @@ export default function SerachBarModel ({setOpen}){
     setTerm(event.target.value);
   };
 
-
   // Implementing the serch term to filter the data
   const filterProduct = useSelector(({prouducts : {data}}) => {
     return data.filter( item => item.title.toLowerCase().includes(term.toLowerCase()));
   });
+
+
   const renderFilterItems = filterProduct.map(item => {
-    return <div key={item.id} className=" p-3 bg-gray-300 border-r-4 border-red-500 mt-1">
-               {item.title}
+    return <div 
+            key={item.id} 
+            className=" p-3 bg-gray-300 border-r-4 border-red-500 mt-1" 
+            >
+            <Link onClick={() => setOpen(0)} to={`/prouduct/${item.id}`}>
+            {item.title}
+            </Link>
             </div>
   })
 
