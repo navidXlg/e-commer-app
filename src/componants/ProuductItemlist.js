@@ -14,6 +14,10 @@ export default function Productitemlist(){
         return data.filter(item => item.category === filterType);
     });
 
+    const renderProducts = proudcts.map(item =>{
+        return <ProuductCard proudct={item}/>
+    })
+
     
     return<div className="text-center pt-5">
             <h2 >محصولات</h2>
@@ -24,6 +28,8 @@ export default function Productitemlist(){
                 <Button danger onClick = {() => setFilterType("Earphones")}>هندزفری د</Button>
                 <Button danger onClick = {() => setFilterType("Neckbands")}>نکبند</Button>
             </div>
-            <ProuductCard proudcts = {proudcts}/>
+            <div className=" grid grid-cols-3 mr-24 gap-7 items-center justify-center my-24">
+            {renderProducts}
+            </div>
           </div>
 };

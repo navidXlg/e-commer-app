@@ -1,6 +1,7 @@
 // import Swiper core and required modules
 import {Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -24,7 +25,9 @@ export default function Slider (){
               <div className='flex flex-col items-center '>
                 <p className='text-xl border-lime-400 border-b-2'>{item.title}</p>
                 <p>{item.info}</p>
-                <Button danger className = "mt-10 w-full hover:shadow-lg" >اطلاعات بیشتر</Button>
+                <Link to={`/prouduct/${item.id}`}>
+                  <Button danger className = "mt-10 w-full hover:shadow-lg" >اطلاعات بیشتر</Button>
+                </Link>
               </div>
             </div>
            </SwiperSlide>
@@ -51,25 +54,6 @@ export default function Slider (){
 
 
 
-
-
-
-
-
-
-{/* <Swiper
-// install Swiper modules
-modules={[Pagination,A11y, Autoplay]}
-spaceBetween={50}
-slidesPerView={1}
-autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-      }}
-pagination={{ clickable: true }}
-onSwiper={(swiper) => console.log(swiper)}
-onSlideChange={() => console.log('slide change')}
-> */}
 
 
 
