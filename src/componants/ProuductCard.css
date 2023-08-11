@@ -163,7 +163,7 @@
      background: #080481;
 }
 
-.container .card .contentBx a {
+.container .card .contentBx .button {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -177,8 +177,16 @@
     transition: .5s;
 }
 
-.container .card:hover .contentBx a {
+.container .card:hover .contentBx .button {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;
 } 
+
+button{
+    transition: all ease-in 70ms;
+}
+
+button:hover{
+    transform: scale(1.2);
+}
