@@ -3,6 +3,7 @@ import { FaSistrix, FaShoppingCart, FaUser } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import SerachBarModel from "./SearchBarModel";
 import SubmitModel from "./SubmitModel";
+import { useSelector } from "react-redux";
 
 
 export default function Navbar(){
@@ -10,7 +11,10 @@ export default function Navbar(){
     // State for submit and serchBar Model Show
     const [navbarStatus, setNavbarStatus] = useState(0);
 
-    return <div className="flex justify-center sticky">
+    const cartQuntite = useSelector(({cart}) => cart.length)
+    console.log(cartQuntite)
+
+    return <div className="flex justify-center text-lg">
               <div className="container px-14 py-4 flex items-center justify-between bg-blue-500">
                 <div className="logo">
                     <Link to = "/">
@@ -22,9 +26,10 @@ export default function Navbar(){
                     <li  className="cursor-pointer">   
                         <FaSistrix onClick={() => setNavbarStatus(1)} />
                     </li>
-                    <li>
+                    <li className="relative">
                         <Link to = "/cart">
-                            <FaShoppingCart/>
+                            <FaShoppingCart />
+                            <span className="bg-red-700 -top-2 -right-2  text-xs text-white py-0 px-1 rounded-3xl absolute">{cartQuntite || ""}</span>
                         </Link>
                     </li>
                     <li  className="cursor-pointer">
