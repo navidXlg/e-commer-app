@@ -31,10 +31,8 @@ export default function ProuductCard({proudct}){
                             <span></span>
                             <span></span>
                         </div>
-                        <div className="button">
                         <button
                         onClick={handelClick}>اضافه به سبد</button>
-                        </div>
                     </div>
                 </div>
                 </div>  

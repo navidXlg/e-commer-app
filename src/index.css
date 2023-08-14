@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Rezvan";
+    src: local("Rezvan") ,url("./fonts/Rezvan.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Rezvan";
+    src: local("Rezvan") ,url("./fonts/Rezvan-fat.ttf") format("truetype");
+    font-weight: bold;
+
+}
+
+*{
+    font-family: Rezvan !important;
+}

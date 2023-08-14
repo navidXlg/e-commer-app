@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState, useRef} from "react";
 import { FaSistrix, FaShoppingCart, FaUser } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import SerachBarModel from "./SearchBarModel";
@@ -10,12 +10,19 @@ export default function Navbar(){
 
     // State for submit and serchBar Model Show
     const [navbarStatus, setNavbarStatus] = useState(0);
-
     const cartQuntite = useSelector(({cart}) => cart.length)
-    console.log(cartQuntite)
+    const element = useRef();
+    // useEffect(() => {
+    //     const handelScroll  = () => {
+    //         const navClass = element.current.classList;
+    //         window.scrollY > 150 ? navClass.add('h-fit') : navClass.remove('h-fit'); 
+    //     };
+    //     window.addEventListener("scroll", handelScroll);
 
-    return <div className="flex justify-center text-lg">
-              <div className="container px-14 py-4 flex items-center justify-between bg-blue-500">
+    // },[]);
+
+    return <div className="flex justify-center text-lg fixed top-0 w-full h-20 z-50">
+              <div className="container px-14 py-4 flex items-center justify-between bg-cyan-500 text-white transition-all ease-in duration-75" ref={element}>
                 <div className="logo">
                     <Link to = "/">
                         تبریز رادیو

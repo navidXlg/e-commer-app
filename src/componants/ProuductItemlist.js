@@ -19,7 +19,7 @@ export default function Productitemlist(){
     })
 
     
-    return<div className="text-center pt-5">
+    return<div className="text-center pt-5 bg-zinc-200 shadow-xl rounded-xl py-10 px-7 m-5">
             <h2 >محصولات</h2>
             <div className="mt-5 flex items-center justify-center gap-6">
                 <Button danger onClick = {() => setFilterType("")}>همه</Button>

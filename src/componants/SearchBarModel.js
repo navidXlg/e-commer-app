@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import  ReactDOM  from "react-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ export default function SerachBarModel ({setOpen}){
   const renderFilterItems = filterProduct.map(item => {
     return <div 
             key={item.id} 
-            className=" p-3 bg-gray-300 border-r-4 border-red-500 mt-1" 
+            className=" p-3 bg-gray-300 border-r-4 border-red-500 mt-1 hover:bg-gray-200" 
             >
             <Link onClick={() => setOpen(0)} to={`/prouduct/${item.id}`}>
             {item.title}
