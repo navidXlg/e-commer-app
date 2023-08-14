@@ -10,7 +10,7 @@ import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage";
 
 export default function App (){
-  console.log(window.scrollY)
+  // console.log(window.scrollY)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProuducts());

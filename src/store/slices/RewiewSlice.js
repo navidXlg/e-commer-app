@@ -33,6 +33,7 @@ const rewieSlice = createSlice({
          
         builder.addCase(addReviw.fulfilled, (state, action) => {
             state.isloading  = false ;
+            console.log(action.payload)
             state.data.push(action.payload);
          });
          
@@ -44,4 +45,4 @@ const rewieSlice = createSlice({
     }
 });
 
-export const {rewiewReducer} = rewieSlice.reducer;
+export const rewiewReducer = rewieSlice.reducer;

@@ -1,24 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { VscAdd } from 'react-icons/vsc';
 import Button from './Button';
 import AddReviewModel from './AddReviewModel';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRewies } from '../store';
 
 export default function ProductRewie({prouduct}){
 
 
     const [isModelOpen, setModelOpen] = useState(false);
     const [reviewCount, setReviwCount] = useState(2);
-    const reviews = prouduct.reviewsData.slice(0, reviewCount);
+    const dispatch = useDispatch() 
+    useEffect(() => {
+        dispatch(fetchRewies())
+    },[dispatch]);
 
+    const review = useSelector(({rewie : {data}}) =>{
+        return data.filter(item => item.userId === prouduct.id)
+    });
+
+    const reviews = review.slice(0, reviewCount);
     const handelClick = () => {
         setReviwCount(reviewCount => reviewCount +2)
     };
 
-
-
-
-    const renderRewie =  reviews.map(item => {
+    const renderRewie = reviews.map(item => {
 
         return <div className='mb-3'>
                 <div className='flex items-center justify-between gap-5 shadow-xl border-s-fuchsia-600 p-5'>
@@ -34,8 +41,6 @@ export default function ProductRewie({prouduct}){
                 </div> 
     });
 
-
-
     return <div className='mt-32 text-lg'>
             <div className='w-fit'>
               <p>دیدگاه کاربران</p>
@@ -49,7 +54,7 @@ export default function ProductRewie({prouduct}){
                 نمایش بیشتر
                 </Button>
                 <VscAdd onClick={() => setModelOpen(true)} />
-                {isModelOpen && <AddReviewModel setOpen = {setModelOpen}/>}
+                {isModelOpen && <AddReviewModel  item = {prouduct} setOpen = {setModelOpen}/>}
             </div>
             </div>
 };

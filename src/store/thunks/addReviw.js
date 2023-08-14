@@ -2,13 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-const addReviw = createAsyncThunk("rewiv/fetch", async (id, name, date, review) => {
-    const response = await axios.get(`http://localhost:3001/productsData/${id}/reviewsData`,{
-        name,
-        date,
-        review
+const addReviw = createAsyncThunk("rewiv/fetch", async (info) => {
+    console.log(info)
+    const response = await axios.post(` http://localhost:3001/review`,{
+        name:info.name,
+        date : new Date(),
+        review : info.review,
+        userId : info.userId,
     });
     return response.data;
-});
 
+});
 export {addReviw};

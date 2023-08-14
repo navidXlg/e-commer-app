@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import Button from "../componants/Button";
 import { A11y,Navigation } from 'swiper/modules';
 import { useDispatch } from "react-redux";
@@ -22,13 +22,14 @@ export default function ProductPage (){
     // Geting id for product
     const {prouductId} = useParams();
     const id = Number(prouductId);
-
-    const prouduct = useSelector(({prouducts:{data,isLoading, error}}) => {     
+    const prouduct = useSelector(({prouducts:{data, isLoading, error}}) => { 
+        console.log("first" + performance.now())    
         return data.find( item => item.id === id);
     });
 
     // Slider slides for componant
      const slidesSwiper = prouduct.images.map(item => {
+        console.log("secound" + performance.now())
         return <SwiperSlide>
                 <img src={item} alt="product img"></img>
             </SwiperSlide>

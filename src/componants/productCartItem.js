@@ -1,5 +1,5 @@
 import {BsTrash} from 'react-icons/bs';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { removeProductCart } from '../store';
 
 
@@ -9,7 +9,6 @@ export default function ProductCartItem({product}){
     const dispatch = useDispatch();
     const handelDeleteClick = (product) => {
         dispatch(removeProductCart(product.id))
-
     };
     
 
