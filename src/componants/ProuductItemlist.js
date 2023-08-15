@@ -5,8 +5,6 @@ import ProuductCard from "./ProuductCard";
 
 
 export default function Productitemlist(){
-
-
     const [filterType, setFilterType] = useState(null);
     const proudcts = useSelector(({prouducts : {data}}) => {
         if (!filterType) return data;

@@ -27,9 +27,9 @@ export default function ProductRewie({prouduct}){
 
     const renderRewie = reviews.map(item => {
 
-        return <div className='mb-3'>
+        return <div className='mb-3 text-sm sm:text-base md:text-lg lg:text-xl'>
                 <div className='flex items-center justify-between gap-5 shadow-xl border-s-fuchsia-600 p-5'>
-                 <div>
+                 <div className=''>
                     <p>دیدگاه: {item.review}</p>
                     <p>کاربر: {item.name}</p>
                  </div>

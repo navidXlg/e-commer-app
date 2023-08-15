@@ -1,16 +1,8 @@
-import { useDispatch} from "react-redux";
-import { addProductCart } from "../store";
 import { Link } from "react-router-dom";
 import "./ProuductCard.css";
 
 
 export default function ProuductCard({proudct}){
-    /// Adding the click event style is needded
-
-    const dispatch = useDispatch();
-    const handelClick = () => {
-        dispatch(addProductCart(proudct))
-    };
     
     return   <div class="container text-xs sm:text-sm md:text-lg ">
                 <div class="card">
@@ -31,8 +23,9 @@ export default function ProuductCard({proudct}){
                             <span></span>
                             <span></span>
                         </div>
-                        <button
-                        onClick={handelClick}>اضافه به سبد</button>
+                        <Link to={`prouduct/${proudct.id}`}>
+                            <button>مشاهده</button>
+                        </Link>
                     </div>
                 </div>
                 </div>  

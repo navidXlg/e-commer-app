@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { useEffect, useLayoutEffect } from "react";
 import Button from "../componants/Button";
 import { A11y,Navigation } from 'swiper/modules';
 import { useDispatch } from "react-redux";
-import { fetchProuducts } from "../store";
+import { addProductCart } from "../store";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -20,16 +19,19 @@ export default function ProductPage (){
     // We have bug here when we reload the page our
     // app crash
     // Geting id for product
+    const dispatch = useDispatch();
     const {prouductId} = useParams();
     const id = Number(prouductId);
     const prouduct = useSelector(({prouducts:{data, isLoading, error}}) => { 
-        console.log("first" + performance.now())    
         return data.find( item => item.id === id);
     });
 
+    const handelClick = () => {
+      dispatch(addProductCart(prouduct))
+    };
+
     // Slider slides for componant
      const slidesSwiper = prouduct.images.map(item => {
-        console.log("secound" + performance.now())
         return <SwiperSlide>
                 <img src={item} alt="product img"></img>
             </SwiperSlide>
@@ -43,31 +45,37 @@ export default function ProductPage (){
 
 
 
-    return <> <div className="grid grid-cols-2 py-16 px-5 mt-28 ">
-           <div className="info col-span-1 bg-zinc-100 shadow-xl py-10 px-7 text-zinc-600 rounded-xl">
-                <div className="w-fit">
-                    <p className="text-4xl">{prouduct.title}</p>
+    return <> <div className="grid lg:grid-cols-2 py-16 px-5 mt-28 ">
+           <div 
+           className="info col-span-1
+          bg-zinc-100 shadow-xl 
+            py-10 px-7 text-zinc-600
+            rounded-xl order-2 mt-20
+            lg:order-1 lg:mt-0">
+                <div className="w-fit text-sm sm:text-lg md:text-xl lg:text-3xl">
+                    <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl">{prouduct.title}</p>
                     <p>{prouduct.info}</p>
                     <p>{prouduct.rating}</p>
                     <span className="border-b-4 w-full border-cyan-400 inline-block"></span>
                 </div>
-                <div className="mt-10 text-xl w-fit">
+                <div className="mt-10 text-sm sm:text-lg md:text-xl lg:text-3xl w-fit">
                     <p> قیمت با تخفیف :{prouduct.originalPrice}</p>
                     <p> قیمت واقعی محصول{prouduct.finalPrice}</p>
                     <p>سود شماازاین خرید : {prouduct.originalPrice - prouduct.finalPrice }</p>
                     <span className="border-b-4 w-full border-cyan-400 inline-block"></span>
                 </div>
-                <Button className ="mt-10" danger>اضافه به سبد</Button>
+                <Button className ="mt-10" danger onClick = {handelClick}>اضافه به سبد</Button>
                 <div>
                     <ProductRewie prouduct={prouduct}/>
                 </div>
             </div>
-            <div className="imge__slider col-span-1">
+            <div className="imge__slider col-span-1 order-1 lg:order-2">
                 <Swiper
                 modules={[A11y, Navigation]}
                 spaceBetween={50}
                 navigation ={{ clickable: true }}
                 slidesPerView={1}
+                className="max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl"
                 >
                 {slidesSwiper}
                 </Swiper>
@@ -75,7 +83,10 @@ export default function ProductPage (){
            </div>
            <div className="info rounded-xl col-span-1 m-5 bg-zinc-100 shadow-xl py-10 px-7 text-zinc-600 flex flex-col items-center justify-between">
                 <p className="text-2xl font-bold text-zinc-600">محصولات مشابه</p>
-                <div className="grid grid-cols-3 w-full mr-24 gap-7 items-center justify-center my-24">
+                <div className="grid grid-col-1 lg:grid-cols-2
+                xl:grid-cols-3 text-xs sm:text-sm md:text-lg
+                -mr-4 lg:mr-10 gap-7 items-center
+                justify-center my-12 sm:my-24">
                     {renderRealtesProuducts}
                 </div>
            </div>
