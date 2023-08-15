@@ -17,16 +17,16 @@ export default function Slider (){
   });
 
   const renderProuducts =  productListSlider.map(item => {
-    return <SwiperSlide className="bg-hero-pattern text-white">
+    return <SwiperSlide className="bg-hero-pattern  text-white">
             <div className = "flex items-center justify-around py-14 relative " key={item.id}>
               <div>
-                <img src={item.heroImage || item.images[0]} alt= "pic of product" className='h-96'></img>
+                <img src={item.heroImage || item.images[0]} alt= "pic of product" className=' h-40 sm:h-60 md:h-72 lg:h-96'></img>
               </div>
-              <div className='flex flex-col items-center'>
-                <p className='text-xl border-lime-400 border-b-2'>{item.title}</p>
+              <div className='flex flex-col items-center text-xs sm:text-sm md:text-lg'>
+                <p className='border-lime-400 border-b-2'>{item.title}</p>
                 <p>{item.info}</p>
                 <Link to={`prouduct/${item.id}`}>
-                  <Button danger className = "mt-10 w-full hover:shadow-lg" >اطلاعات بیشتر</Button>
+                  <Button danger className = "mt-10 w-full hover:shadow-lg text-xs sm:text-sm md:text-lg" >اطلاعات بیشتر</Button>
                 </Link>
               </div>
             </div>

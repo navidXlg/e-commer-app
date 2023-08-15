@@ -8,7 +8,7 @@ export default function CartPage (){
         return cart.length
     });
 
-    return<div className="mt-28">
+    return<div>
             {cartLength === 0 ? <CartEmpty/> : <Cart/>}
           </div>
 };

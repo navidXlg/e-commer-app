@@ -12,10 +12,10 @@ export default function ProuductCard({proudct}){
         dispatch(addProductCart(proudct))
     };
     
-    return   <div class="container">
+    return   <div class="container text-xs sm:text-sm md:text-lg ">
                 <div class="card">
                     <Link to={`/prouduct/${proudct.id}`}>
-                        <div class="imgBx">
+                        <div class="imgBx ">
                             <img src={proudct.images[0]} alt={proudct.info}/>
                         </div>
                     </Link>

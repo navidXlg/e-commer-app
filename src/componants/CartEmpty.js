@@ -5,7 +5,7 @@ import Button from "./Button";
 
 export default function CartEmpty(){
 
-    return <div className="h-screen flex flex-col gap-5 items-center justify-center text-2xl">
+    return <div className="h-screen flex flex-col mt-5 gap-5 items-center justify-center text-lg sm:text-xl md:text-2xl">
                 <FaShoppingCart className="text-8xl text-cyan-600" />
                 <p>هیچ محصولی در سبد خرید شما نمی باشد</p>
                 <Link to = "/">

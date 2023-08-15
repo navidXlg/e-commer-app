@@ -16,9 +16,9 @@ export default function Cart (){
     
     const renderCartProuducts = cartProducts.map(item => <ProductCartItem product={item}/>);
 
-    return <div className="cart__continer grid grid-cols-3 text-lg">
-              <div className=" bg-zinc-100 shadow-xl py-10 px-7 text-zinc-600 m-5 col-span-1 flex flex-col gap-5 rounded-xl">
-                <p className="text-2xl font-bold">سفارش ها</p>
+    return <div className="cart__continer grid md:grid-cols-3 mt-28 ">
+              <div className=" bg-zinc-100 shadow-xl py-10 px-7 text-zinc-600 m-5 col-span-1 flex flex-col gap-5 text-sm sm:text-lg md:text-xl rounded-xl">
+                <p className="font-bold text-lg sm:text-xl md:text-2xl">سفارش ها</p>
                 <div className="flex items-center justify-between">
                     <p>قیمت واقعی</p>
                     <p className="text-green-500 font-bold">{originalPrice}</p>
@@ -39,7 +39,7 @@ export default function Cart (){
                 <Button danger>پرداخت</Button>
               </div>
 
-              <div className="component col-span-2 rounded-xl bg-zinc-100 shadow-xl py-10 px-7 m-5 text-zinc-600 overflow-y-auto max-h-screen">
+              <div className="component md:col-span-2 rounded-xl bg-zinc-100 shadow-xl py-10 px-7 m-5 text-zinc-600 overflow-y-auto max-h-screen">
                 {renderCartProuducts}
               </div>
            </div>

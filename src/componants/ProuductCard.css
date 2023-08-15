@@ -194,3 +194,16 @@
     color: white;
     background-color: #54e51b;
 }
+
+
+@media screen and (max-width:450px){
+    .container .card {
+        width: 250px;
+        height: 400px;
+    }
+    .container .card .imgBx img {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+    }
+}

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import "./fonts/Rezvan.ttf";
 import "./fonts/Rezvan-fat.ttf";
 import store from './store';
+import "./componants/extra.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
