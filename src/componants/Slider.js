@@ -17,16 +17,16 @@ export default function Slider (){
   });
 
   const renderProuducts =  productListSlider.map(item => {
-    return <SwiperSlide>
-            <div className = "flex items-center justify-around py-14" key={item.id}>
+    return <SwiperSlide className="bg-hero-pattern  text-white">
+            <div className = "flex items-center justify-around py-14 relative " key={item.id}>
               <div>
-                <img src={item.heroImage || item.images[0]} alt= "pic of product" className='h-96'></img>
+                <img src={item.heroImage || item.images[0]} alt= "pic of product" className=' h-40 sm:h-60 md:h-72 lg:h-96'></img>
               </div>
-              <div className='flex flex-col items-center '>
-                <p className='text-xl border-lime-400 border-b-2'>{item.title}</p>
+              <div className='flex flex-col items-center text-xs sm:text-sm md:text-lg'>
+                <p className='border-lime-400 border-b-2'>{item.title}</p>
                 <p>{item.info}</p>
-                <Link to={`/prouduct/${item.id}`}>
-                  <Button danger className = "mt-10 w-full hover:shadow-lg" >اطلاعات بیشتر</Button>
+                <Link to={`prouduct/${item.id}`}>
+                  <Button danger className = "mt-10 w-full hover:shadow-lg text-xs sm:text-sm md:text-lg" >اطلاعات بیشتر</Button>
                 </Link>
               </div>
             </div>
@@ -34,11 +34,11 @@ export default function Slider (){
   });
 
   return (
-    <div className='p-5'>
+    <div className='m-5 mt-24 shadow-lg rounded-xl overflow-hidden  '>
     <Swiper
       // install Swiper modules
       modules={[Pagination,A11y, Autoplay]}
-      spaceBetween={50}
+      spaceBetween={100}
       slidesPerView={1}
       autoplay={{
                 delay: 4000,

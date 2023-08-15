@@ -5,10 +5,7 @@ import ProuductCard from "./ProuductCard";
 
 
 export default function Productitemlist(){
-
-
     const [filterType, setFilterType] = useState(null);
-
     const proudcts = useSelector(({prouducts : {data}}) => {
         if (!filterType) return data;
         return data.filter(item => item.category === filterType);
@@ -16,19 +13,22 @@ export default function Productitemlist(){
 
     const renderProducts = proudcts.map(item =>{
         return <ProuductCard proudct={item}/>
+    });
+    const filterTypeArr = [{eng:"",per:"همه"},{eng:"Headphones",per:"هدفون"},{eng:"Earbuds",per:"ایرپاد"},{eng:"Earphones",per:"هندزفری"},{eng:"Neckbands",per:"نکبند"}];
+    const renderBtn = filterTypeArr.map(item => {
+        return <Button danger className = "text-xs sm:text-sm md:text-lg"  onClick = {() => setFilterType(item.eng)}>{item.per}</Button>
     })
-
     
-    return<div className="text-center pt-5">
+    return<div className="text-center pt-5 bg-zinc-200 shadow-xl rounded-xl overflow-hidden py-10 px-7 m-5">
             <h2 >محصولات</h2>
             <div className="mt-5 flex items-center justify-center gap-6">
-                <Button danger onClick = {() => setFilterType("")}>همه</Button>
-                <Button danger onClick = {() => setFilterType("Headphones")}>هدفون</Button>
-                <Button danger onClick = {() => setFilterType("Earbuds")}>ایرپاد</Button>
-                <Button danger onClick = {() => setFilterType("Earphones")}>هندزفری د</Button>
-                <Button danger onClick = {() => setFilterType("Neckbands")}>نکبند</Button>
+            {renderBtn}
             </div>
-            <div className=" grid grid-cols-3 mr-24 gap-7 items-center justify-center my-24">
+            <div 
+            className=" grid grid-col-1 lg:grid-cols-2
+            xl:grid-cols-3 text-xs sm:text-sm md:text-lg
+            -mr-4 lg:mr-24 gap-7 items-center
+            justify-center my-12 sm:my-24">
             {renderProducts}
             </div>
           </div>
