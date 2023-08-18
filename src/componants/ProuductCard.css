@@ -163,7 +163,7 @@
      background: #080481;
 }
 
-.container .card .contentBx a {
+.container .card .contentBx button {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -174,11 +174,36 @@
     color: #111;
     opacity: 0;
     transform: translateY(50px);
-    transition: .5s;
+    transition: transform .5s, opacity .5s ;
 }
 
-.container .card:hover .contentBx a {
+.container .card:hover .contentBx button {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;
 } 
+
+.container .card .contentBx button:hover{
+    transition-delay: 5s;
+    color: white;
+    background-color: #e5361b;
+}
+
+.container .card .contentBx button:active{
+    transition-delay: 5s;
+    color: white;
+    background-color: #54e51b;
+}
+
+
+@media screen and (max-width:450px){
+    .container .card {
+        width: 250px;
+        height: 400px;
+    }
+    .container .card .imgBx img {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+    }
+}

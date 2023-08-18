@@ -1,0 +1,15 @@
+
+
+
+/* serchbar__animation */
+.drop__animation{
+    animation: drop 300ms ease-in ;
+}
+@keyframes drop{
+    0%{
+        transform: translateY(-10rem);
+    };
+    100%{
+        transform: translateY(0);
+    }
+}
