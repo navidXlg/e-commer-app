@@ -26,6 +26,14 @@ export default function ProductPage (){
         return data.find( item => item.id === id);
     });
 
+    const realtedProuducts = useSelector(({prouducts:{data}}) => {
+        return data.filter(item => item.category === prouduct.category);
+    })
+    
+    if (!prouduct || !prouduct.images) {
+        return <div>Loading...</div>; // or display a loading state
+      }
+
     const handelClick = () => {
       dispatch(addProductCart(prouduct))
     };
@@ -38,9 +46,6 @@ export default function ProductPage (){
      });
 
     // Realted products for page
-    const realtedProuducts = useSelector(({prouducts:{data}}) => {
-        return data.filter(item => item.category === prouduct.category);
-    })
     const renderRealtesProuducts = realtedProuducts.map(item => <ProuductCard proudct={item}/>);
 
 
