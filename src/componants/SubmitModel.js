@@ -47,10 +47,10 @@ export default function SubmitModel ({setOpen}){
           <div 
           className="fixed 
           top-1/4 inset-x-5 sm:inset-x-11 md:inset-x-60
-        bg-gray-300 z-50 drop__animation
-        shadow-gray-500 min-w-max
-         shadow-2xl px-5 py-12 h-fit
-         rounded-md">
+          bg-gray-300 z-50 drop__animation
+          shadow-gray-500 min-w-max
+          shadow-2xl px-5 py-12 h-fit
+          rounded-md">
             {modelMode === "submit" ? submitModel() : loginModel()}
           </div>
         </div>,

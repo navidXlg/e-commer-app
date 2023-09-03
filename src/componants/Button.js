@@ -2,11 +2,13 @@ import classNames from "classnames";
 
 export default function Button({
     children,
+    shadow,
     primary,
     secoundry,
     success,
     warning,
     danger,
+    snapp,
     outline,
     rounded,
     ...restHandler
@@ -18,7 +20,9 @@ export default function Button({
             'text-slate-100 bg-green-700':success,
             'text-slate-100 bg-yellow-700':warning,
             'text-slate-100 bg-red-700':danger,
-            'rounded-full' :rounded,
+            'bg-pink-700' : snapp,
+            'shadow-lg' : shadow ,  
+            'rounded' :rounded,
             'bg-white': outline,
             'text-blue-200 border-blue-700 ': outline && primary, 
             'text-gray-200 border-gray-700': outline && secoundry, 
@@ -28,7 +32,7 @@ export default function Button({
 
         });
 
-    return <button {...restHandler} className={clase}>{children}</button>
+    return <button  {...restHandler} className={clase}>{children}</button>
 };
 
 Button.propTypes ={

@@ -8,6 +8,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Footer from "./componants/Footer";
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage";
+import ScrollToTop from "./componants/ScrollToTop";
 
 export default function App (){
   // console.log(window.scrollY)
@@ -18,6 +19,7 @@ export default function App (){
   
   return <>
             <Navbar/>
+            <ScrollToTop/>
             <Routes>
                 <Route path="/" element = {<HomePage/>}></Route>
                 <Route path="*" element = {<ErrorPage/>}></Route>
