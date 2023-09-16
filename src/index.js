@@ -5,8 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import "./fonts/Rezvan.ttf";
-import "./fonts/Rezvan-fat.ttf";
 import store from './store';
 import "./componants/extra.css"
 

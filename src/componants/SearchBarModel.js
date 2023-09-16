@@ -7,15 +7,22 @@ import "./extra.css"
 
 export default function SerachBarModel ({setOpen}){
 
+
+  // Handeling input term in searchbox
   const [term, setTerm] = useState("");
   const handelChange = (event) => {
     setTerm(event.target.value);
   };
 
   // Implementing the serch term to filter the data
-  const filterProduct = useSelector(({prouducts : {data}}) => {
-    return data.filter( item => item.title.toLowerCase().includes(term.toLowerCase()));
+  const {filterProduct, isLoading} = useSelector(({prouducts}) => {
+    const filterProduct = prouducts.data.filter( item => item.title.toLowerCase().includes(term.toLowerCase()));
+    return {
+      filterProduct,
+      isLoading : prouducts.isLoading,
+    };
   });
+
 
 
   const renderFilterItems = filterProduct.map(item => {
@@ -40,7 +47,7 @@ export default function SerachBarModel ({setOpen}){
             <form>
                 <div>
                     <input 
-                    placeholder="  جست و جو محصول ..." 
+                    placeholder = {isLoading === true ? "در حال ارتباط": ".... جست و جو محصول"} 
                     className="bg-gray-300 w-full px-1 sm:px-6 py-1
                      placeholder-slate-500 outline-slate-300
                       text-xs sm:text-sm md:text-lg"
@@ -48,7 +55,7 @@ export default function SerachBarModel ({setOpen}){
                       onChange = {handelChange} ></input>
                 </div>
             </form>
-            {term === "" ? "" : renderFilterItems}
+            {term !== "" ? renderFilterItems : null }
           </div>
         </div>,
         document.querySelector('.model-container-search')
