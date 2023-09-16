@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loginThunk } from "../thunks/loginThunk";
+import { registerUser } from "../thunks/registerUser";
 
 
 
@@ -27,8 +28,19 @@ const authSlice = createSlice({
             state.isLoading = false;
             state.error = action.error;
         });
+        builder.addCase(registerUser.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(registerUser.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.user = action.payload;
+        });
+        builder.addCase(registerUser.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+        });
     }
 });
 
 
-export const authRedeucer = authSlice.reducer
+export const authRedeucer = authSlice.reducer;

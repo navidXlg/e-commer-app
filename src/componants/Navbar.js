@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import SerachBarModel from "./SearchBarModel";
 import { useSelector } from "react-redux";
 import { FiHeadphones } from 'react-icons/fi';
-import UserState from "./SubmitModel";
+import UserState from "./UserState";
 
 
 export default function Navbar(){

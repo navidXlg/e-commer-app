@@ -20,4 +20,5 @@ export default store;
 export * from "./thunks/fetchProducts";
 export * from "./thunks/fetchRewies";
 export * from "./thunks/addReviw";
+export * from "./thunks/registerUser";
 
