@@ -8,7 +8,6 @@ import UserState from "./UserState";
 
 
 export default function Navbar(){
-
     // State for submit and serchBar Model Show
     const [navbarStatus, setNavbarStatus] = useState(0);
     const cartNumber = useSelector(({cart}) => cart.length);

@@ -4,10 +4,6 @@ import { registerUser } from "../store";
 import { useDispatch } from "react-redux";
 
 
-
-
-
-
 export default function Submit({setModelMode}){
 
     const {handleSubmit, register} = useForm();
