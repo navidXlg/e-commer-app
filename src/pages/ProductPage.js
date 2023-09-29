@@ -14,13 +14,14 @@ import ProductRewie from "../componants/ProductRewiw";
 
 
 
-export default function ProductPage (){
 
-    // We have bug here when we reload the page our
-    // app crash
+
+
+export default function ProductPage (){
     // Geting id for product
     const dispatch = useDispatch();
     const {prouductId} = useParams();
+    console.log(prouductId)
     const id = Number(prouductId);
     const prouduct = useSelector(({prouducts:{data, isLoading, error}}) => { 
         return data.find( item => item.id === id);
@@ -48,9 +49,8 @@ export default function ProductPage (){
     // Realted products for page
     const renderRealtesProuducts = realtedProuducts.map(item => <ProuductCard proudct={item}/>);
 
-
-
-    return <> <div className="grid lg:grid-cols-2 py-16 px-5 mt-28 ">
+    return <> 
+           <div className="grid lg:grid-cols-2 py-16 px-5 mt-28 ">
            <div 
            className="info col-span-1
           bg-zinc-100 shadow-xl 
@@ -96,4 +96,4 @@ export default function ProductPage (){
                 </div>
            </div>
            </>
-}
+};

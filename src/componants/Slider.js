@@ -2,8 +2,6 @@
 import {Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
@@ -11,21 +9,23 @@ import { useSelector } from 'react-redux';
 import Button from './Button';
 
 
+
+
 export default function Slider (){
   const productListSlider = useSelector(({prouducts : {data}}) => {
-    return data.slice(-5)
+    return data.slice(-5);
   });
 
   const renderProuducts =  productListSlider.map(item => {
-    return <SwiperSlide className="bg-hero-pattern  text-white">
+    return <SwiperSlide className="bg-hero-pattern text-white">
             <div className = "flex items-center justify-around py-14 relative " key={item.id}>
               <div>
-                <img src={item.heroImage || item.images[0]} alt= "pic of product" className=' h-40 sm:h-60 md:h-72 lg:h-96'></img>
+                <img src={item.heroImage || item.images[0]} alt= "pic of product" className='h-40 sm:h-60 md:h-72 lg:h-96'></img>
               </div>
               <div className='flex flex-col items-center text-xs sm:text-sm md:text-lg'>
                 <p className='border-lime-400 border-b-2'>{item.title}</p>
                 <p>{item.info}</p>
-                <Link to={`prouduct/${item.id}`}>
+                <Link to={`product/${item.id}`}>
                   <Button danger className = "mt-10 w-full hover:shadow-lg text-xs sm:text-sm md:text-lg" >اطلاعات بیشتر</Button>
                 </Link>
               </div>
@@ -34,9 +34,8 @@ export default function Slider (){
   });
 
   return (
-    <div className='m-5 mt-24 shadow-lg rounded-xl overflow-hidden  '>
+    <div className='m-5 mt-24 shadow-lg rounded-xl overflow-hidden'>
     <Swiper
-      // install Swiper modules
       modules={[Pagination,A11y, Autoplay]}
       spaceBetween={100}
       slidesPerView={1}
@@ -51,9 +50,3 @@ export default function Slider (){
     </div>
   );
 };
-
-
-
-
-
-

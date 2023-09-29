@@ -35,10 +35,10 @@ export default function App (){
           <Navbar />
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="*" element={<ErrorPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path="/" element={<HomePage/>} />
+            <Route path="*" element={<ErrorPage/>} />
+            <Route path="/cart" element={<CartPage/>} />
+            <Route path="/product/:prouductId" element={<ProductPage/>} />
           </Routes>
           <Footer />
         </>

@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import Button from "../componants/Button";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 
 
 export default function ErrorPage(){
-    useEffect(() => {
-        setTimeout( ()=>{
-            window.history.pushState({}, "", "/");
-        },7000)
+    // useEffect(() => {
+    //     setTimeout( ()=>{
+    //         window.history.pushState({}, "", "/");
+    //     },7000)
 
-        return () => {
-            clearTimeout();
-        }
-    });
+    //     return () => {
+    //         clearTimeout();
+    //     }
+    // });
        
     
 
