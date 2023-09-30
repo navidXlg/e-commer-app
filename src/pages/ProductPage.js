@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { DotLoader } from "react-spinners";
 import { useParams } from "react-router";
 import Button from "../componants/Button";
 import { A11y,Navigation } from 'swiper/modules';
@@ -14,26 +15,33 @@ import ProductRewie from "../componants/ProductRewiw";
 
 
 
+
+
+
 export default function ProductPage (){
 
-    // We have bug here when we reload the page our
-    // app crash
+
     // Geting id for product
     const dispatch = useDispatch();
     const {prouductId} = useParams();
     const id = Number(prouductId);
-    const prouduct = useSelector(({prouducts:{data, isLoading, error}}) => { 
+    const prouduct = useSelector(({prouducts:{data}}) => { 
         return data.find( item => item.id === id);
     });
-
+    
     const realtedProuducts = useSelector(({prouducts:{data}}) => {
         return data.filter(item => item.category === prouduct.category);
-    })
+    });
     
     if (!prouduct || !prouduct.images) {
-        return <div>Loading...</div>; // or display a loading state
-      }
-
+        return <DotLoader
+        color="rgba(54, 215, 183, 1)"
+        size={80}
+        speedMultiplier={1}
+      />
+    };
+    
+    
     const handelClick = () => {
       dispatch(addProductCart(prouduct))
     };
@@ -48,9 +56,8 @@ export default function ProductPage (){
     // Realted products for page
     const renderRealtesProuducts = realtedProuducts.map(item => <ProuductCard proudct={item}/>);
 
-
-
-    return <> <div className="grid lg:grid-cols-2 py-16 px-5 mt-28 ">
+    return <> 
+           <div className="grid lg:grid-cols-2 py-16 px-5 mt-28 ">
            <div 
            className="info col-span-1
           bg-zinc-100 shadow-xl 
@@ -96,4 +103,4 @@ export default function ProductPage (){
                 </div>
            </div>
            </>
-}
+};

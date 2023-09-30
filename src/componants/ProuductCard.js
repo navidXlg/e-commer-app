@@ -4,9 +4,10 @@ import "./ProuductCard.css";
 
 export default function ProuductCard({proudct}){
     
+    console.log(proudct.id);
     return   <div class="container text-xs sm:text-sm md:text-lg ">
                 <div class="card">
-                    <Link to={`/prouduct/${proudct.id}`}>
+                    <Link to={`/product/${proudct.id}`}>
                         <div class="imgBx ">
                             <img src={proudct.images[0]} alt={proudct.info}/>
                         </div>
@@ -23,7 +24,7 @@ export default function ProuductCard({proudct}){
                             <span></span>
                             <span></span>
                         </div>
-                        <Link to={`prouduct/${proudct.id}`}>
+                        <Link to={`/product/${proudct.id}`}>
                             <button>مشاهده</button>
                         </Link>
                     </div>

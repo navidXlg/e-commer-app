@@ -8,6 +8,7 @@ const proudctSlice = createSlice({
         data : [],
         isLoading : false,
         error : null,
+        succes : false
     },
     reducers : {
         addProudct(state, action){
@@ -15,14 +16,17 @@ const proudctSlice = createSlice({
         }
     },
     extraReducers(builder){
-        builder.addCase(fetchProuducts.pending, (state, action) => {
-            state.isLoading = true
+        builder.addCase(fetchProuducts.pending, (state) => {
+            state.isLoading = true;
         });
         builder.addCase(fetchProuducts.fulfilled, (state, action) => {
-            state.data = action.payload
+            state.data = action.payload;
+            state.succes = true;
+            state.isLoading = false;
         });
         builder.addCase(fetchProuducts.rejected, (state, action) => {
             state.error = action.error
+            state.isLoading = false;
         });
     }
 });
