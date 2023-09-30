@@ -17,7 +17,7 @@ const proudctSlice = createSlice({
     },
     extraReducers(builder){
         builder.addCase(fetchProuducts.pending, (state) => {
-            state.isLoading = true
+            state.isLoading = true;
         });
         builder.addCase(fetchProuducts.fulfilled, (state, action) => {
             state.data = action.payload;
@@ -26,6 +26,7 @@ const proudctSlice = createSlice({
         });
         builder.addCase(fetchProuducts.rejected, (state, action) => {
             state.error = action.error
+            state.isLoading = false;
         });
     }
 });

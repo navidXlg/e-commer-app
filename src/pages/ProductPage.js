@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { DotLoader } from "react-spinners";
 import { useParams } from "react-router";
 import Button from "../componants/Button";
 import { A11y,Navigation } from 'swiper/modules';
@@ -18,23 +19,29 @@ import ProductRewie from "../componants/ProductRewiw";
 
 
 export default function ProductPage (){
+
+
     // Geting id for product
     const dispatch = useDispatch();
     const {prouductId} = useParams();
-    console.log(prouductId)
     const id = Number(prouductId);
-    const prouduct = useSelector(({prouducts:{data, isLoading, error}}) => { 
+    const prouduct = useSelector(({prouducts:{data}}) => { 
         return data.find( item => item.id === id);
     });
-
+    
     const realtedProuducts = useSelector(({prouducts:{data}}) => {
         return data.filter(item => item.category === prouduct.category);
-    })
+    });
     
     if (!prouduct || !prouduct.images) {
-        return <div>Loading...</div>; // or display a loading state
-      }
-
+        return <DotLoader
+        color="rgba(54, 215, 183, 1)"
+        size={80}
+        speedMultiplier={1}
+      />
+    };
+    
+    
     const handelClick = () => {
       dispatch(addProductCart(prouduct))
     };
