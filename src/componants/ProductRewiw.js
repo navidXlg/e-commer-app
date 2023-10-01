@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
+import { AiOutlineLike, AiOutlineDislike, AiTwotoneDelete } from 'react-icons/ai';
 import { VscAdd } from 'react-icons/vsc';
 import Button from './Button';
 import AddReviewModel from './AddReviewModel';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRewies } from '../store';
+import { removeRewiew } from '../store';
 
 export default function ProductRewie({prouduct}){
 
@@ -25,10 +26,14 @@ export default function ProductRewie({prouduct}){
         setReviwCount(reviewCount => reviewCount +2)
     };
 
+    const handelDeleteRewiew = (id) => {
+        dispatch(removeRewiew(id))
+    };
+
     const renderRewie = reviews.map(item => {
 
         return <div className='mb-3 text-sm sm:text-base md:text-lg lg:text-xl'>
-                <div className='flex items-center justify-between gap-5 shadow-xl border-s-fuchsia-600 p-5'>
+                <div className='flex items-center justify-between gap-5 shadow-xl border-s-fuchsia-600 p-5 '>
                  <div className=''>
                     <p>دیدگاه: {item.review}</p>
                     <p>کاربر: {item.name}</p>
@@ -36,6 +41,7 @@ export default function ProductRewie({prouduct}){
                  <div className="like_dislike flex items-center justify-between gap-5 text-2xl text-red-600">
                     <AiOutlineDislike className='hover:text-red-950 active:text-3xl'/>
                     <AiOutlineLike className='hover:text-red-950 active:text-3xl'/>
+                    <AiTwotoneDelete className='hover:text-red-950 active:text-3xl' onClick={() => handelDeleteRewiew(item.id)}/>
                  </div>        
                  </div>
                 </div> 

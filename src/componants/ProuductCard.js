@@ -4,7 +4,6 @@ import "./ProuductCard.css";
 
 export default function ProuductCard({proudct}){
     
-    console.log(proudct.id);
     return   <div class="container text-xs sm:text-sm md:text-lg ">
                 <div class="card">
                     <Link to={`/product/${proudct.id}`}>

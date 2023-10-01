@@ -3,6 +3,7 @@ import { productReducer, addProudct } from "./slices/ProuductSlice";
 import { cartReducer, addProductCart, removeProductCart } from "./slices/CartSlice";
 import { rewiewReducer } from "./slices/RewiewSlice";
 import { authRedeucer } from "./slices/authSlice";
+import { removeRewiew } from "./thunks/removeRewiew";
 
 
 
@@ -15,10 +16,11 @@ const store = configureStore({
     }
 });
 
-export {addProudct, productReducer, cartReducer, addProductCart, removeProductCart, rewiewReducer};
+export {addProudct, productReducer, cartReducer, addProductCart, removeProductCart, rewiewReducer, removeRewiew};
 export default store;
 export * from "./thunks/fetchProducts";
 export * from "./thunks/fetchRewies";
 export * from "./thunks/addReviw";
 export * from "./thunks/registerUser";
+export * from "./thunks/removeRewiew";
 

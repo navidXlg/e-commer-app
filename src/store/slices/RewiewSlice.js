@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchRewies } from "../thunks/fetchRewies";
 import { addReviw } from "../thunks/addReviw";
+import { removeRewiew } from "../thunks/removeRewiew";
 
 
 
@@ -39,6 +40,16 @@ const rewieSlice = createSlice({
          
         builder.addCase(addReviw.rejected, (state, action) => {
             state.isloading  = false ;
+            state.error = action.error;
+         });
+        builder.addCase(removeRewiew.pending, (state, action) => {
+            state.isloading  = true;
+         });
+        builder.addCase(removeRewiew.fulfilled, (state) => {
+            state.isloading  = false;
+         });
+        builder.addCase(removeRewiew.rejected, (state, action) => {
+            state.isloading  = false;
             state.error = action.error;
          });
         

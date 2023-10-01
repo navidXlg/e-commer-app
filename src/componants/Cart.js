@@ -15,6 +15,7 @@ export default function Cart (){
     const originalPrice = cartProducts.reduce((acc, item) => acc+item.originalPrice,0);
     const finalPrice  = cartProducts.reduce((acc, item) => acc+item.finalPrice,0);
 
+
     return <div className="cart__continer grid md:grid-cols-3 mt-28 ">
               <div className=" bg-zinc-100 shadow-xl py-10 px-7 text-zinc-600 m-5 col-span-1 flex flex-col gap-5 text-sm sm:text-lg md:text-xl rounded-xl">
                 <p className="font-bold text-lg sm:text-xl md:text-2xl">سفارش ها</p>
