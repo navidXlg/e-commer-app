@@ -4,20 +4,20 @@ import "./ProuductCard.css";
 
 export default function ProuductCard({proudct}){
     
-    return   <div class="container text-xs sm:text-sm md:text-lg ">
-                <div class="card">
+    return   <div className="container text-xs sm:text-sm md:text-lg ">
+                <div className="card">
                     <Link to={`/product/${proudct.id}`}>
-                        <div class="imgBx ">
+                        <div className="imgBx ">
                             <img src={proudct.images[0]} alt={proudct.info}/>
                         </div>
                     </Link>
-                    <div class="contentBx">
+                    <div className="contentBx">
                         <h2>{proudct.title}</h2>
-                        <div class="size">
+                        <div className="size">
                             <h3>قیمت : </h3>
                             <span>{proudct.originalPrice}$</span>
                         </div>
-                        <div class="color">
+                        <div className="color">
                             <h3>رنگ بندی</h3>
                             <span></span>
                             <span></span>

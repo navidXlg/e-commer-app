@@ -14,19 +14,19 @@ export default function Productitemlist(){
     });
 
     const renderProducts = proudcts.map(item =>{
-        return <ProuductCard key={item.title} proudct={item}/>
+        return <ProuductCard key={item.id} proudct={item}/>
     });
     
     const filterTypeArr = [
-        {eng:"",per:"همه"},
-        {eng:"Headphones",per:"هدفون"},
-        {eng:"Earbuds",per:"ایرپاد"},
-        {eng:"Earphones",per:"هندزفری"},
-        {eng:"Neckbands",per:"نکبند"}
+        {id:1, eng:"",per:"همه"},
+        {id:2,eng:"Headphones",per:"هدفون"},
+        {id:3,eng:"Earbuds",per:"ایرپاد"},
+        {id:4,eng:"Earphones",per:"هندزفری"},
+        {id:5,eng:"Neckbands",per:"نکبند"}
     ];
 
     const renderBtn = filterTypeArr.map(item => {
-        return <Button rounded primary className ="text-xs hover:border-gray-800 hover:shadow-2xl transition-all ease-in  sm:text-sm md:text-lg"
+        return <Button rounded primary key={item.id} className ="text-xs hover:border-gray-800 hover:shadow-2xl transition-all ease-in  sm:text-sm md:text-lg"
           onClick = {() => setFilterType(item.eng)}>{item.per}</Button>;
     });
     

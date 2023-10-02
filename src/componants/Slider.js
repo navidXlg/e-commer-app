@@ -17,7 +17,7 @@ export default function Slider (){
   });
 
   const renderProuducts =  productListSlider.map(item => {
-    return <SwiperSlide className="bg-hero-pattern text-white">
+    return <SwiperSlide key={item.id} className="bg-hero-pattern text-white">
             <div className = "flex items-center justify-around py-14 relative " key={item.id}>
               <div>
                 <img src={item.heroImage || item.images[0]} alt= "pic of product" className='h-40 sm:h-60 md:h-72 lg:h-96'></img>
