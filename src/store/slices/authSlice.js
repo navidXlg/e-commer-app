@@ -28,6 +28,10 @@ const authSlice = createSlice({
             state.isLoading = false;
             state.error = action.error;
         });
+
+        ///////
+        ///////
+
         builder.addCase(registerUser.pending, (state) => {
             state.isLoading = true;
         });

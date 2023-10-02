@@ -23,4 +23,5 @@ export * from "./thunks/fetchRewies";
 export * from "./thunks/addReviw";
 export * from "./thunks/registerUser";
 export * from "./thunks/removeRewiew";
+export * from "./thunks/loginThunk";
 

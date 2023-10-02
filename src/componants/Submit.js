@@ -11,6 +11,8 @@ export default function Submit({setModelMode}){
     const submitForm = (data) => {
       dispatch(registerUser(data))
     }; 
+
+
   return <> 
     <form 
     className="flex flex-col items-center
@@ -29,7 +31,7 @@ export default function Submit({setModelMode}){
       w-full px-6 py-2 placeholder-slate-500 
       outline-slate-300 border 
       border-slate-500"
-      {...register("firstName")}></input>
+      {...register("userName")}></input>
       <input 
       placeholder="ایمیل" 
       type="email" 

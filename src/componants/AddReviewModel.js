@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import Button from "./Button";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { addReviw } from "../store";
 import "./extra.css";
 
