@@ -16,24 +16,27 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 
 
 export default function App (){
-  const {isLoading, error} = useSelector(({prouducts}) => prouducts)
+
+  const {isLoading, error} = useSelector(({prouducts}) => prouducts);
+
   // Fetching all products when app starts
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProuducts());
   },[dispatch]);
 
+
   
   return (
     <>
-      {error ? (
-        <ErrorFetch />
-      ) : isLoading ? (
-        <PropagateLoader className="text-center mt-52" color="#36d7b7" size={50} />
-      ) : (
-        <>
-          <Navbar />
-          <ScrollToTop />
+      {error 
+      ?<ErrorFetch/>
+      :isLoading 
+      ?<PropagateLoader className="text-center mt-52" color="#36d7b7" size={50} />
+      :<>
+          <Navbar/>
+          <ScrollToTop/>
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="*" element={<ErrorPage/>} />
@@ -42,7 +45,7 @@ export default function App (){
           </Routes>
           <Footer />
         </>
-      )}
+      }
     </>
   );
 };

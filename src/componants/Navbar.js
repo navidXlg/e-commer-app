@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import { FaSistrix, FaShoppingCart, FaUser } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import SerachBarModel from "./SearchBarModel";
@@ -13,6 +13,7 @@ import UserState from "./UserState";
 export default function Navbar(){
     // State for submit and serchBar Model Show
     const [navbarStatus, setNavbarStatus] = useState(0);
+    const [scroll, setScroll] = useState(false);
     const cartNumber = useSelector(({cart}) => cart.length);
 
     // Handeling Model show 
@@ -22,14 +23,28 @@ export default function Navbar(){
     <SerachBarModel setOpen = {setNavbarStatus}/> 
     : null;
 
+    const navbar = useRef(null);
+    useEffect(() => {
+        const scrollBar = () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            scrollTop>=100? setScroll(true): setScroll(false);
+        }
+        window.addEventListener("scroll", scrollBar)
+        return () => {
+            window.addEventListener("scroll", scrollBar);
+        } 
+    },[])
 
 
-    return <nav className="flex justify-center fixed top-0 w-full h-15 sm:h-20 z-40 ">
-              <div className="w-full px-5 sm:px-14 py-4 flex items-center justify-between bg-cyan-500 text-white text-sm sm:text-lg md:text-xl ">
+
+    return <nav ref={navbar} className= "flex justify-center fixed top-0 w-full h-20 sm:h-20 z-40">
+              <div className={
+                scroll ? "w-full px-5 sm:px-14 py-4 flex items-center justify-between bg-cyan-500 text-white text-sm sm:text-lg md:text-xl opacity-80" : "w-full px-5 sm:px-14 py-4 flex items-center justify-between bg-cyan-500 text-white text-sm sm:text-lg md:text-xl "
+              }>
                 <div>
                     <Link to = "/" className="flex items-center justify-between gap-2 transition-all ease-in duration-200 hover:text-gray-300 ">
                         <FiHeadphones/>
-                        رادیو تبریز
+                            رادیو تبریز
                     </Link>
                 </div>
 

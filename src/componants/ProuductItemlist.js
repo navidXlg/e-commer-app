@@ -5,16 +5,12 @@ import ProuductCard from "./ProuductCard";
 
 
 export default function Productitemlist(){
+ 
 
-    
     const [filterType, setFilterType] = useState(null);
     const proudcts = useSelector(({prouducts : {data}}) => {
         if (!filterType) return data;
         return data.filter(item => item.category === filterType);
-    });
-
-    const renderProducts = proudcts.map(item =>{
-        return <ProuductCard key={item.id} proudct={item}/>
     });
     
     const filterTypeArr = [
@@ -25,22 +21,22 @@ export default function Productitemlist(){
         {id:5,eng:"Neckbands",per:"نکبند"}
     ];
 
-    const renderBtn = filterTypeArr.map(item => {
-        return <Button rounded primary key={item.id} className ="text-xs hover:border-gray-800 hover:shadow-2xl transition-all ease-in  sm:text-sm md:text-lg"
-          onClick = {() => setFilterType(item.eng)}>{item.per}</Button>;
-    });
     
     return <div className="text-center pt-5 bg-zinc-200 shadow-xl rounded-xl overflow-hidden py-10 px-7 m-5">
              <h2>محصولات</h2>
              <div className="mt-5 flex items-center justify-center gap-6">
-               {renderBtn}
-             </div>
-             <div 
-             className=" grid grid-col-1 lg:grid-cols-2
-             xl:grid-cols-3 text-xs sm:text-sm md:text-lg
-             -mr-4 lg:mr-24 gap-7 items-center
-             justify-center my-12 sm:my-24">
-               {renderProducts}
+               {
+                filterTypeArr.map(item => <Button rounded primary key={item.id} className ="text-xshover:border-gray-800 hover:shadow-2xl transition-all ease-in  sm:text-sm md:text-lg" onClick = {() => setFilterType(item.eng)}>{item.per}</Button>)
+               }
+              </div>
+              <div 
+              className=" grid grid-col-1 lg:grid-cols-2
+              xl:grid-cols-3 text-xs sm:text-sm md:text-lg
+              -mr-4 lg:mr-24 gap-7 items-center
+              justify-center my-12 sm:my-24">
+               {
+                proudcts.map(item =><ProuductCard key={item.id} proudct={item}/>)
+               }
              </div>
           </div>
 };

@@ -5,12 +5,7 @@ import ProductCartItem from "../componants/productCartItem"
 
 export default function Cart (){
 
-    const cartProducts = useSelector(({cart}) => {
-        return cart;
-    });
-
-   
-
+    const cartProducts = useSelector(({cart}) => cart);
     const cartsProductsShow = cartProducts.filter((item,index,arr) => arr.indexOf(item) === index);
     const originalPrice = cartProducts.reduce((acc, item) => acc+item.originalPrice,0);
     const finalPrice  = cartProducts.reduce((acc, item) => acc+item.finalPrice,0);
