@@ -14,26 +14,14 @@ import ProuductCard from "../componants/ProuductCard";
 import ProductRewie from "../componants/ProductRewiw";
 
 
-
-
-
-
 export default function ProductPage (){
 
-
-    // Geting id for product
     const dispatch = useDispatch();
     const {prouductId} = useParams();
-    const id = Number(prouductId);
-    const prouduct = useSelector(({prouducts:{data}}) => { 
-        return data.find( item => item.id === id);
-    });
+    const prouduct = useSelector(({prouducts:{data}}) => data.find( item => item.id === Number(prouductId)));
+    const realtedProuducts = useSelector(({prouducts:{data}}) => data.filter(item => item.category === prouduct.category));
     
-    const realtedProuducts = useSelector(({prouducts:{data}}) => {
-        return data.filter(item => item.category === prouduct.category);
-    });
-    
-    if (!prouduct || !prouduct.images) {
+    if (!prouduct || !prouduct.images){
         return <DotLoader
         color="rgba(54, 215, 183, 1)"
         size={80}
@@ -41,19 +29,12 @@ export default function ProductPage (){
       />
     };
     
-    
-    const handelClick = () => {
-      dispatch(addProductCart(prouduct))
-    };
-
-    // Slider slides for componant
      const slidesSwiper = prouduct.images.map(item => {
         return <SwiperSlide>
                 <img src={item} alt="product img"></img>
             </SwiperSlide>
      });
 
-    // Realted products for page
     const renderRealtesProuducts = realtedProuducts.map(item => <ProuductCard proudct={item}/>);
 
     return <> 
@@ -76,7 +57,7 @@ export default function ProductPage (){
                     <p>سود شماازاین خرید : {prouduct.originalPrice - prouduct.finalPrice }</p>
                     <span className="border-b-4 w-full border-cyan-400 inline-block"></span>
                 </div>
-                <Button className ="mt-10" danger onClick = {handelClick}>اضافه به سبد</Button>
+                <Button className ="mt-10" danger onClick={() => dispatch(addProductCart(prouduct))}>اضافه به سبد</Button>
                 <div>
                     <ProductRewie prouduct={prouduct}/>
                 </div>

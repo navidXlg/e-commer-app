@@ -34,7 +34,9 @@ export default function Cart (){
                 <Button danger>پرداخت</Button>
               </div>
               <div className="component md:col-span-2 rounded-xl bg-zinc-100 shadow-xl py-10 px-7 m-5 text-zinc-600 overflow-y-auto max-h-screen">
-                {cartsProductsShow.map(item => <ProductCartItem product={item}/>)}
+                {
+                cartsProductsShow.map(item => <ProductCartItem product={item}/>)
+                }
               </div>
            </div>
 };
