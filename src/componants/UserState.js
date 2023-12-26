@@ -23,7 +23,7 @@ export default function UserState ({setOpen}){
           shadow-gray-500 min-w-max
           shadow-2xl px-5 py-12 h-fit
           rounded-md">
-            {modelMode === "submit" ? <Submit setModelMode={setModelMode}/> : <Login setModelMode = {setModelMode} />}
+            {modelMode === "submit" ? <Submit setOpen = {setOpen} setModelMode={setModelMode}/> : <Login setOpen = {setOpen} setModelMode = {setModelMode} />}
           </div>
         </div>,
         document.querySelector('.model-container-submit')

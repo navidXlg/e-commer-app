@@ -1119,18 +1119,5 @@
   ],
   "review": [],
   "users": [
-    {
-      "id": 1,
-      "username": "تویدخالقی",
-      "password": 1378000,
-      "token": 152585
-    },
-    {
-      "firstName": "مهدی",
-      "email": "navidkhalegisut@gamil.com",
-      "password": "137800000",
-      "Content-Type": "application/json",
-      "id": 2
-    }
   ]
 }

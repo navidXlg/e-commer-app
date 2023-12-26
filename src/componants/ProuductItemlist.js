@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import Button from "./Button"
 import { useState } from "react";
 import ProuductCard from "./ProuductCard";
+import classNames from "classnames";
 
 
 export default function Productitemlist(){
@@ -14,21 +15,27 @@ export default function Productitemlist(){
     });
     
     const filterTypeArr = [
-        {id:1, eng:"",per:"همه"},
-        {id:2,eng:"Headphones",per:"هدفون"},
-        {id:3,eng:"Earbuds",per:"ایرپاد"},
-        {id:4,eng:"Earphones",per:"هندزفری"},
-        {id:5,eng:"Neckbands",per:"نکبند"}
+        {id:1, englishTitle:null,title:"همه"},
+        {id:2,englishTitle:"Headphones",title:"هدفون"},
+        {id:3,englishTitle:"Earbuds",title:"ایرپاد"},
+        {id:4,englishTitle:"Earphones",title:"هندزفری"},
+        {id:5,englishTitle:"Neckbands",title:"نکبند"}
     ];
 
+    const itemStyle = (item) => classNames("text-xs transition-all duration-250 ease-in sm:text-sm md:text-lg",{
+        "border-b-4 border-cyan-400 pb-1" : filterType === item.englishTitle
+    });
+
     
-    return <div className="text-center pt-5 bg-zinc-200 shadow-xl rounded-xl overflow-hidden py-10 px-7 m-5">
-             <h2>محصولات</h2>
-             <div className="mt-5 flex items-center justify-center gap-6">
-               {
-                filterTypeArr.map(item => <Button rounded primary key={item.id} className ="text-xshover:border-gray-800 hover:shadow-2xl transition-all ease-in  sm:text-sm md:text-lg" onClick = {() => setFilterType(item.eng)}>{item.per}</Button>)
-               }
-              </div>
+    return <div className=" text-gray-500 text-center pt-5 mb-20  bg-zinc-200 shadow-xl rounded-xl overflow-hidden py-10 px-7 mx-8">
+             <div className="flex items-center gap-16 mt-10 mr-24">
+                <h2 className="font-bold">دسته بندی محصولات :</h2>
+                <div className=" flex items-center justify-center gap-8">
+                {
+                    filterTypeArr.map(item => <p key={item.id} className = {itemStyle(item)} onClick = {() => setFilterType(item.englishTitle)}>{item.title}</p>)
+                }
+                </div>
+             </div>
               <div 
               className=" grid grid-col-1 lg:grid-cols-2
               xl:grid-cols-3 text-xs sm:text-sm md:text-lg
@@ -39,4 +46,4 @@ export default function Productitemlist(){
                }
              </div>
           </div>
-};
+    };

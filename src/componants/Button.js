@@ -20,7 +20,6 @@ export default function Button({
             'text-slate-100 bg-green-700':success,
             'text-slate-100 bg-yellow-700':warning,
             'text-slate-100 bg-red-700':danger,
-            'bg-pink-700' : snapp,
             'shadow-lg' : shadow ,  
             'rounded' :rounded,
             'bg-white': outline,

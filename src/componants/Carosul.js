@@ -15,7 +15,7 @@ export default function Carosul(){
   const carosulItems = useSelector(({prouducts : {data}}) => data.slice(-5));
 
 
-  return <div className='m-5 mt-24 shadow-lg rounded-xl overflow-hidden'>
+  return <div className='mx-8 mt-24 mb-16 shadow-lg rounded-xl overflow-hidden'>
           <Swiper modules={[Pagination,A11y, Autoplay]} spaceBetween={100} slidesPerView={1}
           autoplay={{ delay: 4000, disableOnInteraction: false,}} pagination={{ clickable: true }}>
           {
@@ -29,7 +29,7 @@ export default function Carosul(){
                   <p className='border-lime-400 text-3xl uppercase mb-10  border-b-2'>{item.title}</p>
                   <p>{item.info}</p>
                   <Link to={`product/${item.id}`}>
-                    <Button danger rounded className = " outline-none mt-10 w-full hover:shadow-lg text-xs sm:text-sm md:text-lg" >اطلاعات بیشتر</Button>
+                    <Button rounded className = "  hover:border-red-700 hover:border-2 hover:text-red-500 transition-all ease-in duration-300 outline-none mt-10  hover:shadow-lg text-xs sm:text-sm md:text-lg" >اطلاعات بیشتر</Button>
                   </Link>
                 </div>
               </div>

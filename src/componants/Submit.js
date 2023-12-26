@@ -2,9 +2,11 @@ import Button from "./Button"
 import {useForm} from "react-hook-form";
 import { registerUser } from "../store";
 import { useDispatch } from "react-redux";
+import { IoMdClose } from "react-icons/io";
 
 
-export default function Submit({setModelMode}){
+
+export default function Submit({setModelMode, setOpen}){
 
     const {handleSubmit, register} = useForm();
     const dispatch = useDispatch();
@@ -20,8 +22,11 @@ export default function Submit({setModelMode}){
     md:text-xlg gap-4 h-full"
     onSubmit={handleSubmit(submitForm)}>
       <div className="place-items-stretch w-full pr-4 text-start">
+        <div className="flex items-center justify-between ">
         <h2>ثبت نام </h2>
-        <p>قبلا ثبت نام کرده اید؟ <span onClick={() => setModelMode("login")}>ورود</span></p>
+        <IoMdClose className="cursor-pointer" onClick = {() => setOpen(0)}/>
+        </div>
+        <p>قبلا ثبت نام کرده اید؟ <span className="text-red-700 hover:text-red-500 mr-2 cursor-pointer" onClick={() => setModelMode("login")}>ورود</span></p>
       </div>
       <input 
       placeholder="نام کاربری" 

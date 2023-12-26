@@ -3,18 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Rezvan";
-    src: local("Rezvan") ,url("./fonts/Rezvan.ttf") format("truetype");
+    font-family: "Dirooz";
+    src: local("Dirooz") ,url("./fonts/Dirooz.ttf") format("truetype");
     font-weight: normal;
 }
 
-@font-face {
-    font-family: "Rezvan";
-    src: local("Rezvan") ,url("./fonts/Rezvan-fat.ttf") format("truetype");
-    font-weight: bold;
 
-}
 
 *{
-    font-family: Rezvan !important;
+    font-family: Dirooz !important;
 }
